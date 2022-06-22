@@ -42,7 +42,8 @@ fn find_lenstrs(data: &[u8]) {
                 leftovers.clear();
                 println!();
                 print!("Bingo: [{}] ", found);
-                println!("{}", std::str::from_utf8(interesting).unwrap());
+                // Remove nul term
+                println!("{}", std::str::from_utf8(&interesting[..interesting.len() - 1]).unwrap());
                 println!();
             }
         } else {
